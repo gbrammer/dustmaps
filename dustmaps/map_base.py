@@ -23,7 +23,6 @@
 from __future__ import print_function, division
 
 import numpy as np
-import healpy as hp
 import astropy.coordinates as coordinates
 import astropy.units as units
 
@@ -57,6 +56,8 @@ def coord2healpix(coords, frame, nside, nest=True):
     Raises:
         :obj:`dustexceptions.CoordFrameError`: If the specified frame is not supported.
     """
+    import healpy as hp
+    
     if coords.frame.name != frame:
         c = coords.transform_to(frame)
     else:
